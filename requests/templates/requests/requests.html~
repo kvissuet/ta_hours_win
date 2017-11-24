@@ -3,10 +3,7 @@
   <p>Requests</p>
   <ul>
     {% for request in requests %}
-      <li>
-      	<a href="{% url 'requests:comment' request.id %}">{{ request }} - {{request.owner}} - DATE:{{request.date}}- TIME:{{request.time}} - ROOM:{{request.room}} - COURSE:{{request.course}}</p> 
-</a>
-      </li>
+      <li>{{ request }}</li>
     {% empty %}
       <li>No requests have been posted.</li>
     {% endfor %}

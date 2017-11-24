@@ -13,7 +13,4 @@ urlpatterns = [
 	
 	#page for adding a new request
 	url(r'^new_request/$', views.new_request, name='new_request'),
-	
-	# Detail page for a single topic
-	url(r'^requests/(?P<request_id>\d+)/$', views.comment, name='comment'),
 ]

@@ -1,0 +1,27 @@
+{% extends 'requests/base.html' %}
+{% block content %}
+<p>Request: {{ request }}</p>
+<h3>{{request.owner}} - DATE:{{request.date}}- TIME:{{request.time}} - ROOM:{{request.room}} - COURSE:{{request.course}}</h3> 
+<p>Comments:</p>
+<ul>
+{% for entry in entries %}
+<li>
+<p>{{ entry.date_added|date:'M d, Y H:i' }}</p>
+<p>{{ entry.text|linebreaks }}</p>
+</li>
+{% empty %}
+<li>
+There are no entries for this topic yet.
+</li>
+{% endfor %}
+</ul>
+{% endblock content %}
+
+	title = models.CharField(max_length=200)
+	date = models.CharField(max_length=200)
+	time = models.CharField(max_length=200)
+	room = models.CharField(max_length=200)
+	course = models.CharField(max_length=200)
+	value = models.CharField(max_length=200)
+	date_posted = models.DateTimeField(auto_now_add=True)
+	owner = models.ForeignKey(User)

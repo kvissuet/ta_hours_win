@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
+from django.contrib.auth.decorators import login_required
+
 
 from .models import Request
 from .forms import RequestForm
@@ -30,3 +32,10 @@ def new_request(request):
 			
 	context = {'form': form}
 	return render(request, 'requests/new_request.html', context)
+	
+def comment(request, request_id):
+	"""Show a single topic and all its entries."""
+	r = Request.objects.get(id=request_id)
+	entries = r.comment_set.order_by('-date_added')
+	context = {'request': r, 'entries': entries}
+	return render(request, 'requests/comments.html', context)

@@ -7,6 +7,8 @@ from django.contrib.auth import logout
 
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.forms import UserCreationForm
+from django.core.mail import send_mail
+from django.contrib.auth.models import User
 
 def logout_view(request):
 	"""Log the user out."""
@@ -15,7 +17,10 @@ def logout_view(request):
 
 def confirm(request):
 	return render(request, 'users/confirm.html')
-	
+
+def already_registered(request):
+	return render(request, 'users/already_registered')
+
 def register(request):
 	"""Register a new user."""
 	if request.method != 'POST':

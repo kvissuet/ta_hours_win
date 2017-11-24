@@ -1,0 +1,5 @@
+{% extends "requests/base.html" %}
+
+{% block content %}
+  <p>Log out if you want to register a new account.</p>
+{% endblock content %}
