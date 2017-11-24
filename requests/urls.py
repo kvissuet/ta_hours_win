@@ -10,4 +10,7 @@ urlpatterns = [
 	
 	#Show all requests.
 	url(r'^requests/$', views.requests, name='requests'),
+	
+	#page for adding a new request
+	url(r'^new_request/$', views.new_request, name='new_request'),
 ]

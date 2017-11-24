@@ -8,4 +8,7 @@
       <li>No requests have been posted.</li>
     {% endfor %}
   </ul>
+  
+  <a href="{% url 'requests:new_request' %}">Add a new request</a>
+  
 {% endblock content %}
