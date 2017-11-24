@@ -1,0 +1,11 @@
+{% extends "requests/base.html" %}
+{% block content %}
+  <p>Requests</p>
+  <ul>
+    {% for request in requests %}
+      <li>{{ request }}</li>
+    {% empty %}
+      <li>No requests have been posted.</li>
+    {% endfor %}
+  </ul>
+{% endblock content %}
