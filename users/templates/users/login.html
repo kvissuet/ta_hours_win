@@ -1,4 +1,4 @@
-
+{% extends "requests/base.html" %}
 {% block content %}
 {% if form.errors %}
 <p>Your username and password didn't match. Please try again.</p>
@@ -7,6 +7,6 @@
 {% csrf_token %}
 {{ form.as_p }}
 	<button name="submit">log in</button>
-	<input type="hidden" name="next" value="{% url 'https://www.reddit.com'}" />
+	<input type="hidden" name="next" value="{% url 'requests:requests' %}" />
 </form>
 {% endblock content %}
