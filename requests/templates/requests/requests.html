@@ -7,37 +7,42 @@
 <body>
 {% block content %}
 
+<div class="container">
+
+  <p>Find classes here. Click on post for more info.</p>            
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Course</th>
+        <th>Room</th>
+        <th>Number of hours</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for r in requests %}
+      <tr>
+        <td><a href="{% url 'requests:comment' r.id %}">{{ r.owner }}</td>
+        <td>{{r.date}}</td>
+        <td>{{r.time}}</td>
+        <td>{{r.course}}</td>
+        <td>{{r.room}}</td>
+        <td>{{r.value}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 
 
 
-<div class="container-fluid">
-	   <div>
-  <div class="row">
-    <div class="col-sm-2" style="background-color:lavender;">name</div>
-    <div class="col-sm-2" style="background-color:pink;"> date</div>
-    <div class="col-sm-2" style="background-color:lavender;">time</div>
-    <div class="col-sm-2" style="background-color:pink;">course</div>
-    <div class="col-sm-2" style="background-color:lavender;">room</div>
-    <div class="col-sm-2" style="background-color:pink;">Value</div>
-</div>
-</div> 
-    {% for request in requests %}
-      <div>
-  <div class="row">
-    <div class="col-sm-2" style="background-color:lavender;"><a href="{% url 'requests:comment' request.id %}">{{ request.owner }}</a></div>
-    <div class="col-sm-2" style="background-color:pink;"> {{request.date}}</div>
-    <div class="col-sm-2" style="background-color:lavender;">{{request.time}}</div>
-    <div class="col-sm-2" style="background-color:pink;">{{request.course}}</div>
-    <div class="col-sm-2" style="background-color:lavender;">{{request.room}}</div>
-    <div class="col-sm-2" style="background-color:pink;">{{request.value}}</div>
-
-</div>
-</div> 
- {% endfor %}
+ 
     
-  <a href="{% url 'requests:new_request' %}">Add a new request</a>
   
-</div>   
+  
+</div> 
+<a href="{% url 'requests:new_request' %}">Add a new request</a>
 </body>
 </html>
 {% endblock content %}
