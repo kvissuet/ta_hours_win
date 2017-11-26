@@ -1,0 +1,11 @@
+{% extends "requests/base.html" %}
+{% block content %}
+
+<p><a href="{% url 'requests:comment' request.id %}">{{ topic }}</a></p>
+<p>Edit entry:</p>
+<form action="{% url 'requests:edit_comment' comment.id %}" method='post'>
+{% csrf_token %}
+{{ form.as_p }}
+<button name="submit">save changes</button>
+</form>
+{% endblock content %}

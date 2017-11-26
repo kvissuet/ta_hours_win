@@ -1,0 +1,10 @@
+{% extends "requests/base.html" %}
+{% block content %}
+  <p>Add a new request:</p>
+  
+  <form action="{% url 'requests:new_request' %}" method='post'> 
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button name="submit">add request</button>
+  </form>
+{% endblock content %}

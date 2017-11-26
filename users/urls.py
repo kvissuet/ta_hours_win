@@ -12,6 +12,6 @@ urlpatterns = [
 	# Logout page
 	url(r'^logout/$', views.logout_view, name='logout'),
 	# Thank you for registering, go to email to confirm
-	url(r'^confirm/$', views.confirm, {'template_name': 'users/confirm.html'},
+	url(r'^confirm/$', views.confirm, 
 		name='confirm'),
 ]

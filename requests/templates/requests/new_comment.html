@@ -1,0 +1,12 @@
+{% extends "requests/base.html" %}
+
+{% block content %}
+  <p>Add a new request:</p>
+  <p><a href="{% url 'requests:comment' request.id %}">{{ topic }}</a></p>
+  
+  <form action="{% url 'requests:new_comment' request.id %}" method='post'> 
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button name="submit">add comment</button>
+  </form>
+{% endblock content %}

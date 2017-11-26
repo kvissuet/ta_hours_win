@@ -16,4 +16,11 @@ urlpatterns = [
 	
 	# Detail page for a single topic
 	url(r'^requests/(?P<request_id>\d+)/$', views.comment, name='comment'),
+	
+	# Page for adding a new comment
+	url(r'^new_comment/(?P<request_id>\d+)/$', views.new_comment, name='new_comment'),
+	
+	# Page for editing an entry
+	url(r'^edit_comment/(?P<comment_id>\d+)/$', views.edit_comment,
+		name='edit_comment'),
 ]
