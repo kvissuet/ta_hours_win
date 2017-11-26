@@ -1,12 +1,91 @@
-<p>
-  <a href="{% url 'requests:index' %}">Home</a> -
-  <a href="{% url 'requests:requests' %}">Requests</a> -
-  {% if user.is_authenticated %}
-  	Hello, {{ user.username }}. - 
-  	<a href="{% url 'users:logout' %}">log out</a>
-  {% else %}
-    <a href="{% url 'users:register' %}">register</a> -
-  	<a href="{% url 'users:login' %}">log in</a>
-  {% endif %}
-</p>
+{% load bootstrap3 %}
+
+<html lang="en">
+<head>
+  <title>Bootstrap Theme Company</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<style>
+.jumbotron { 
+    background-color: #0094d8; /* Blue */
+    color: #f7f7f7;
+}
+</style>
+
+
+
+<div class="jumbotron text-center">
+  <h1>TA Hours</h1> 
+  <p>Find someone to cover your classes here</p> 
+</div>
+
+<style>
+.navbar { 
+    background-color: #353532; /* Blue */
+    color: #d9f4f2;
+}
+</style>
+<body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="{% url 'requests:index' %}">TA Hours</a>
+      </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="{% url 'requests:index' %}">Home</a></li>
+      <li><a href="{% url 'requests:requests' %}">Requests</a></li>
+        <li><a href="{% url 'requests:new_request' %}">Add a new request</a></li>
+        {% if user.is_authenticated %}
+           
+  <li><a href="{% url 'requests:new_request' %}">Add a new request</a></li>
+  
+  	<a class="navbar-text">Hello, {{ user.username }}.</a>
+    <li><a href="{% url 'users:logout' %}">log out</a></li>
+    
+      {% else %}
+	<li><a href="{% url 'users:register' %}">register</a></li>
+	<li><a href="{% url 'users:login' %}">log in</a></li>
+    {% endif %}
+	</ul>
+	 </div><!--/.nav-collapse -->
+  </div>
+</nav>
+<div class="container">
+<div class="page-header">
+{% block header %}{% endblock header %}
+</div>
+<div>
 {% block content %}{% endblock content %}
+</div>
+</div> <!-- /container -->
+</body>
+</html>
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

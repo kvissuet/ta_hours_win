@@ -1,8 +1,4 @@
 {% extends "requests/base.html" %}
-{% load bootstrap3 %}
-{% block header %}
-	<h2>Create an account.</h2>
-{% endblock header %}
 {% block content %}
 <form method="post" action="{% url 'users:register' %}">
 {% csrf_token %}

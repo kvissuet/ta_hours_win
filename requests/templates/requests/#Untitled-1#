@@ -1,0 +1,16 @@
+{% block content %}
+
+  <ul>
+    {% for request in requests %}
+      <li>
+      	<a href="{% url 'requests:comment' request.id %}">{{ request.owner }}</a> - {{request.owner}} - DATE:{{request.date}}- TIME:{{request.time}} - ROOM:{{request.room}} - COURSE:{{request.course}} 
+
+      </li>
+    {% empty %}
+      <li>No requests have been posted.</li>
+    {% endfor %}
+  </ul>
+  
+  <a href="{% url 'requests:new_request' %}">Add a new request</a>
+  
+{% endblock content %}

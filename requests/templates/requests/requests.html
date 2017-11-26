@@ -1,17 +1,44 @@
 {% extends "requests/base.html" %}
+
+<html lang="en">
+{% block header %}
+	<h1>Requests</h1>
+{% endblock header %}
+<body>
 {% block content %}
-  <p>Requests</p>
-  <ul>
+
+
+
+
+<div class="container-fluid">
+	   <div>
+  <div class="row">
+    <div class="col-sm-2" style="background-color:lavender;">name</div>
+    <div class="col-sm-2" style="background-color:pink;"> date</div>
+    <div class="col-sm-2" style="background-color:lavender;">time</div>
+    <div class="col-sm-2" style="background-color:pink;">course</div>
+    <div class="col-sm-2" style="background-color:lavender;">room</div>
+    <div class="col-sm-2" style="background-color:pink;">Value</div>
+</div>
+</div> 
     {% for request in requests %}
-      <li>
-      	<a href="{% url 'requests:comment' request.id %}">{{ request }} - {{request.owner}} - DATE:{{request.date}}- TIME:{{request.time}} - ROOM:{{request.room}} - COURSE:{{request.course}}</p> 
-</a>
-      </li>
-    {% empty %}
-      <li>No requests have been posted.</li>
-    {% endfor %}
-  </ul>
-  
+      <div>
+  <div class="row">
+    <div class="col-sm-2" style="background-color:lavender;"><a href="{% url 'requests:comment' request.id %}">{{ request.owner }}</a></div>
+    <div class="col-sm-2" style="background-color:pink;"> {{request.date}}</div>
+    <div class="col-sm-2" style="background-color:lavender;">{{request.time}}</div>
+    <div class="col-sm-2" style="background-color:pink;">{{request.course}}</div>
+    <div class="col-sm-2" style="background-color:lavender;">{{request.room}}</div>
+    <div class="col-sm-2" style="background-color:pink;">{{request.value}}</div>
+
+</div>
+</div> 
+ {% endfor %}
+    
   <a href="{% url 'requests:new_request' %}">Add a new request</a>
   
+</div>   
+</body>
+</html>
 {% endblock content %}
+</body>
